@@ -24,8 +24,8 @@
         const header = document.createElement('th');
         header.textContent = headerText;
         if (index === 0) header.setAttribute('data-sortable', 'false');
-        if (index === 1) {
-          header.setAttribute('data-sorted', 'true');
+        if (index === 7) {
+          header.setAttribute('data-sorted', 'false');
           header.setAttribute('data-sorted-direction', 'ascending');
         }
         headerRow.appendChild(header);
@@ -38,6 +38,7 @@
         rowData.forEach(cellData => {
           const cell = document.createElement('td');
           cell.textContent = cellData;
+          // cell.setAttribute('data-value', cellData);
           row.appendChild(cell);
         });
         tbody.appendChild(row);
