@@ -2,6 +2,10 @@
   <img src="assets/prison_escape_icon_web.png" width="300">
 </h3>
 
+# Results:
+
+[**Results Table**](https://c7x43t.github.io/prison_escape/display_results/)
+
 # Prison Escape
 
 Python notebooks containing various Prisoner's Dilemma approaches.
