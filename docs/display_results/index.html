@@ -26,6 +26,7 @@
         if (index === 0) header.setAttribute('data-sortable', 'false');
         if (index === 7) {
           header.setAttribute('data-sorted', 'false');
+          header.setAttribute('data-custom-sorted', 'false');
           header.setAttribute('data-sorted-direction', 'ascending');
         }
         headerRow.appendChild(header);
@@ -56,6 +57,7 @@
 
     // Initialize Sortable
     Sortable.init();
+    document.querySelector('[data-custom-sorted]').click();
   </script>
 </body>
 
