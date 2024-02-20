@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Display Results</title>
+</head>
+
+<body>
+  <script src="../output/results.js"></script>
+  <link rel="stylesheet" href="./sortable-0.8.0/css/sortable-theme-bootstrap.css" />
+  <script src="./sortable-0.8.0/js/sortable.min.js"></script>
+  <table class="sortable-table" data-sortable></table>
+  <script>
+    function populateTable(results) {
+      const table = document.querySelector('.sortable-table');
+      const thead = document.createElement('thead');
+      const tbody = document.createElement('tbody');
+      const headerRow = document.createElement('tr');
+
+      // Assuming the first row of results contains headers
+      results[0].forEach((headerText, index) => {
+        const header = document.createElement('th');
+        header.textContent = headerText;
+        if (index === 0) header.setAttribute('data-sortable', 'false');
+        if (index === 1) {
+          header.setAttribute('data-sorted', 'true');
+          header.setAttribute('data-sorted-direction', 'ascending');
+        }
+        headerRow.appendChild(header);
+      });
+      thead.appendChild(headerRow);
+
+      // Populate the body of the table
+      results.slice(1).forEach(rowData => {
+        const row = document.createElement('tr');
+        rowData.forEach(cellData => {
+          const cell = document.createElement('td');
+          cell.textContent = cellData;
+          row.appendChild(cell);
+        });
+        tbody.appendChild(row);
+      });
+
+      // Append thead and tbody to the table
+      table.appendChild(thead);
+      table.appendChild(tbody);
+    }
+
+    // Assuming `results` is defined in `results.js`
+    if (typeof results !== 'undefined' && results.length > 0) {
+      populateTable(results);
+    }
+
+    // Initialize Sortable
+    Sortable.init();
+  </script>
+</body>
+
+</html>
